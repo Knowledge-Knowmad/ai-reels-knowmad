@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Reels — 知識遊牧</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, "Noto Sans TC", "Helvetica Neue", sans-serif;
+      background: #0f0f14;
+      color: #e4e4e7;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    .logo img { width: 32px; height: 32px; border-radius: 6px; }
+    .subtitle {
+      font-size: .85rem;
+      font-weight: 400;
+      opacity: .85;
+      color: #fff;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: .6rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #a1a1aa;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Reels Grid ── */
+    .reels-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 4rem;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #d4d4d8;
+      border-left: 3px solid #a78bfa;
+      padding-left: .8rem;
+    }
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    /* ── Card ── */
+    .reel-card {
+      background: #1c1c24;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .reel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(124, 58, 237, .25);
+    }
+    .reel-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: linear-gradient(135deg, #27272f 0%, #1a1a22 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reel-thumb .play-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .play-icon::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 4px;
+    }
+    .reel-info {
+      padding: 1rem;
+    }
+    .reel-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+    .reel-info .tag {
+      display: inline-block;
+      font-size: .75rem;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: rgba(167,139,250,.15);
+      color: #a78bfa;
+      margin-right: .4rem;
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #71717a;
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: .8rem; }
+    .empty-state p { font-size: .95rem; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .8rem;
+      color: #52525b;
+      border-top: 1px solid #27272a;
+    }
+
+    /* ── RWD ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.7rem; }
+      .reels-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .8rem; }
+      header { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="/">
+      <img src="favicon.svg" alt="AI Reels">
+      AI Reels
+    </a>
+    <span class="subtitle">知識遊牧 Knowmad</span>
+  </header>
+
+  <section class="hero">
+    <h1>AI Reels Collection</h1>
+    <p>收錄 AI 工具教學、工作流程自動化、Prompt 技巧等短影音，隨時隨地快速學習。</p>
+  </section>
+
+  <section class="reels-section">
+    <h2 class="section-title">Reels</h2>
+
+    <div class="reels-grid">
+      <!-- 放置 reel 卡片的地方，以下是範例結構 -->
+      <!--
+      <a class="reel-card" href="#" target="_blank">
+        <div class="reel-thumb">
+          <div class="play-icon"></div>
+        </div>
+        <div class="reel-info">
+          <h3>Reel 標題</h3>
+          <span class="tag">AI 工具</span>
+          <span class="tag">教學</span>
+        </div>
+      </a>
+      -->
+    </div>
+
+    <!-- 尚無影片時顯示 -->
+    <div class="empty-state">
+      <div class="icon">🎬</div>
+      <p>即將上架 AI 短影音，敬請期待！</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 知識遊牧 Knowmad — AI Reels
+  </footer>
+
+</body>
+</html>
