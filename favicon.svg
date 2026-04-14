@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#ec4899"/>
+      <stop offset="0%" stop-color="#1a2744"/>
+      <stop offset="100%" stop-color="#2a3a5c"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="url(#g)"/>
   <!-- Play triangle -->
-  <polygon points="24,16 48,32 24,48" fill="#fff" opacity="0.95"/>
+  <polygon points="24,16 48,32 24,48" fill="#64b5f6" opacity="0.95"/>
   <!-- AI spark -->
-  <circle cx="50" cy="14" r="5" fill="#facc15"/>
-  <line x1="50" y1="7" x2="50" y2="21" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
-  <line x1="43" y1="14" x2="57" y2="14" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="50" cy="14" r="4" fill="#42a5f5"/>
+  <line x1="50" y1="8" x2="50" y2="20" stroke="#42a5f5" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="44" y1="14" x2="56" y2="14" stroke="#42a5f5" stroke-width="1.5" stroke-linecap="round"/>
 </svg>
